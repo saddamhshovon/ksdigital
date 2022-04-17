@@ -13,6 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/migrate/{user}/{pass}', [\App\Http\Controllers\MigrationController::class, 'migrate']);
+
 Route::get('/', function () {
     return view('welcome');
 });
