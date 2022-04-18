@@ -12,8 +12,10 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/migrate/{user}/{pass}', [\App\Http\Controllers\MigrationController::class, 'migrate']);
+Route::controller(\App\Http\Controllers\MigrationController::class)->group(function(){
+    Route::get('/migrateandseed/{user}/{pass}', 'migrateAndSeed');
+    Route::get('/migrate/{user}/{pass}', 'migrate');
+});
 
 Route::get('/', function () {
     return view('welcome');
