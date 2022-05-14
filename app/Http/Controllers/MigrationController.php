@@ -18,7 +18,7 @@ class MigrationController extends Controller
             abort(401);
         }
 
-        Artisan::call('migrate:fresh --seed', [ 
+        Artisan::call('migrate:fresh', [ 
             '--seed' => true,
             '--force' => true 
         ]);
