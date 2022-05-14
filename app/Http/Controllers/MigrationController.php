@@ -18,7 +18,10 @@ class MigrationController extends Controller
             abort(401);
         }
 
-        Artisan::call('migrate:fresh --seed', [ '--force' => true ]);
+        Artisan::call('migrate:fresh --seed', [ 
+            '--seed' => true,
+            '--force' => true 
+        ]);
         $artisanOutput = Artisan::output();
         
         return view('migration.index', compact('artisanOutput'));
